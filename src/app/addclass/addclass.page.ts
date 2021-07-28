@@ -11,19 +11,55 @@ import { LocalStorageService } from '../services/local-storage.service';
   styleUrls: ['./addclass.page.scss'],
 })
 export class AddclassPage implements OnInit {
-  public list: any[] = [];
+  list: any;
+  list1:any;
+  list2:any
+  classnumber:any;
+  classid:any;
   public class: any = {
     class_name: '计算机一班',
     course: '',
     semester: '二',
+    school_id:'',
+    faculty_id:'',
+    major_id: 1
 
   };
   constructor(public router: Router, private localStorageService: LocalStorageService, private alertController: AlertController, public navCtrl: NavController, public httpService: HttpserviceService, public http: HttpClient) { }
 
   ngOnInit() {
-    // this.getdata();
+    this.getschoolfacult()
   }
+
+  
+  async getschoolfacult() {
+     
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    let userid = this.localStorageService.get('userid', ' error');
+
+
+    var api = 'http://localhost:3000/api/getAllSchoolFacultyMajor';
+    this.http.get(api ,httpOptions).subscribe(response => {
+      console.log(response)
+      this.list1 = response;
+      this.list1 = this.list1.schools.rows;
+      this.list2 = response;
+      this.list2 = this.list2.faculties.rows
+      //this.class.school_id = this.list1.schools.rows[0].name
+      //this.class.faculty_id = this.list1.faculties.rows[0].name
+      
+     
+
+    })
+  }
+    
+  
   async createclass() {
+    let _list : any;
+
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -52,8 +88,8 @@ export class AddclassPage implements OnInit {
         'semester': this.class.semester,
         'user_id': userid,
         'class_number': -1,
-        'school_id': 1,
-        'faculty_id': 1,
+        'school_id': this.class.school_id,
+        'faculty_id': this.class.faculty_id,
         'major_id': 1,
         'is_school_plan': true
         // extend_json

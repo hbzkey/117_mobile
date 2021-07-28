@@ -13,6 +13,20 @@
     <ion-label></ion-label>
   </ion-item-divider>
   <ion-item>
+    <ion-label>学校</ion-label>
+    <select class="ooo" style="text-align: center;text-align-last: center;" placeholder="未设置" [(ngModel)]="class.school_id">
+      <option value = ""> ---请选择---</option>>
+      <option *ngFor="let item of list1">  {{item.name}}</option>
+    </select>
+  </ion-item>
+  <ion-item>
+    <ion-label>院系</ion-label>
+    <select  placeholder="未设置" [(ngModel)]="class.faculty_id">
+      <option value = ""> ---请选择---</option>>
+      <option *ngFor="let item of list2">  {{item.name}}</option>
+    </select>
+  </ion-item>
+  <ion-item>
     <ion-label>班级</ion-label>
     <ion-input type="text" placeholder="未设置" slot="end" [(ngModel)]="class.class_name"></ion-input>
   </ion-item>
@@ -30,3 +44,4 @@
 <ion-button (click)="createclass()" expand="block" fill="outline" shape="round">
   创建
 </ion-button>
+
