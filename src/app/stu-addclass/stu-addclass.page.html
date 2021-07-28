@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="[ '/tabs']" (click)="back()">
+      返回
+    </ion-button>
+    <ion-title>输入班课号加入班级</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>班课号</ion-label>
+      <ion-input type="text" placeholder="未设置" slot="end" [(ngModel)]="class.classnumber"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-button (click)="addtoclass()" expand="block" fill="outline" shape="round" color="success" >
+     加入班课
+  </ion-button>
+</ion-content>

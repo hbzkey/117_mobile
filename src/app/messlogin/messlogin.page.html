@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>短信登陆</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div padding-horizontal>
+    <ion-list padding-right no-margin>
+ 
+      <ion-item>
+        <ion-label>手机号</ion-label>
+        <ion-input type="number" placeholder="tel" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+ 
+    </ion-list>
+    <ion-grid>
+        <ion-col>
+          <ion-item>
+            <ion-label>输入验证码</ion-label>
+            <ion-input type="number" placeholder="6位数字" [(ngModel)]="code"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-row>
+        <ion-col>
+          <ion-button expand="full" color="primary" [disabled]="!verifyCode.disable" (click)="message()">{{verifyCode.verifyCodeTips}}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="full" color="primary" (click)="login()">登陆</ion-button>
+        </ion-col>
+      </ion-row>
+  
+
+    </ion-grid>
+</div>
+</ion-content>

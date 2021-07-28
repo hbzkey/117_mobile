@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>密码</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines='full' class='mylist'>
+  
+    <ion-item>
+      <ion-label>密码</ion-label>
+      <ion-input type="password" placeholder="password" [(ngModel)]="personinfo.password" slot="end"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>确认密码</ion-label>
+      <ion-input type="password" placeholder="password" [(ngModel)]="personinfo.confirmpassword" slot="end"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="register()" expand="block" fill="outline" shape="round" color="success">
+    注册
+  </ion-button>
+</ion-content>

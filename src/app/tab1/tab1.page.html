@@ -50,11 +50,9 @@
             </ion-buttons>
             <ion-searchbar placeholder="请用班课号搜索" type="string" [(ngModel)]="stuclass_number"> </ion-searchbar>
 
-            <ion-buttons slot="end" class="message" (click)="searchclick()">
-                搜索
-            </ion-buttons>
-
         </ion-toolbar>
+        
+        <ion-button expand="block" slot="end" class="message" (click)="searchclick()"> 搜索班课号 </ion-button>
         <ion-list *ngFor="let item of list">
 
             <ion-item-divider>

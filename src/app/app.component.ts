@@ -10,6 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  title = 'app';
+  elementType = 'url';
+  value = 'Techiediaries';
   public selectedIndex = 0;
   public appPages = [
     {
